@@ -13,13 +13,14 @@ dat_NYC <- subset(acs2017_ny, (acs2017_ny$in_NYC == 1) & (acs2017_ny$AGE > 20) &
 
 attach(dat_NYC)
 
-#borough_f assigned to neighborhoods
+#borough_f assigned to PUMA in order to check by neighborhood 
 borough_f <- factor(PUMA)
 
 norm_varb <- function(X_in) {
 +   (max(X_in, na.rm = TRUE) - X_in)/( max(X_in, na.rm = TRUE) - min(X_in, na.rm = TRUE) )}
 
 add_test <- COSTGAS + COSTWATR + COSTELEC + COSTFUEL + FUELHEAT + FAMSIZE + unmarried
+# Combined common household utilities with size of family and marriage status. We had the idea that family size is relevant to what neighborhoods you live in based on you income. We also estimated that the more children you have the higher chance of the person being unmarried.
 
 norm_1 <- norm_varb(add_test)
 norm_2 <- norm_varb(HHINCOME)
@@ -88,3 +89,4 @@ print(c(indx,correct_rate))}
 [1] 1.0000000 0.6933619
 [1] 3.0000000 0.3007985
 [1] 5.0000000 0.2217852
+# We can predict with approximately 69% accuracy what neighborhood a person lives in based on the variables used in our code as well as thier closest neighbor.
