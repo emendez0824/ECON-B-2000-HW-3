@@ -90,3 +90,4 @@ print(c(indx,correct_rate))}
 [1] 3.0000000 0.3007985
 [1] 5.0000000 0.2217852
 # We can predict with approximately 69% accuracy what neighborhood a person lives in based on the variables used in our code as well as thier closest neighbor.
+# More research needs to be done in order to figure out which variables are more likely to get the probability closer to 1. An interesting idea to research would be to use only uncontrollable variables. examples would include race and ancestry as these 2 things are undeterminable by the participants unlike income and family size.
